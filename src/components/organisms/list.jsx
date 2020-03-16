@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Row,Col,Card,ListGroup } from 'react-bootstrap';
 import * as Dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
