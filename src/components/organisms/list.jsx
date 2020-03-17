@@ -4,6 +4,20 @@ import * as Dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 
+const filterTarget = (props) => {
+  let target = Object.keys(props.filterName);
+  let names='';
+   for(let i=0 ; i<target.length; i++){
+       if(typeof props.char[target[i]] !=='undefined'){
+            if(typeof props.char[target[i]] !=="object"){
+                names +=' '+ props.char[target[i]]
+            }else{
+                names +=' '+ props.char[target[i]]['name'];
+            }
+        }
+   }
+   return names;
+};
 
 const List = (props) => {
     Dayjs.extend(relativeTime);
@@ -13,10 +27,13 @@ const List = (props) => {
         'gender':props.char.gender,
         'origin':props.char.origin.name,
         'last location':props.char.location.name,
-    }
-    
+    };
+    const targetvalue = filterTarget(props);
+   
+
+
     return ( 
-        <Col lg="3" md="6" className="items">
+        <Col lg="3" md="6" className="items" data-target={targetvalue}>
             <Card>
                 <div className="imgWrapper">
                 <Card.Img variant="top" src={props.char.image} />

@@ -1,7 +1,9 @@
 import React from 'react';
-const Badge = () => {
-    return (  
-        <li>Human<span>x</span></li>
+const Badge = (props) => {
+    return ( 
+        props.selected.map((item,index)=>{ 
+         return <li key={index}>{item}<span onClick={props.removeBadge} value={item}>x</span></li>
+        })
     );
 }
  
