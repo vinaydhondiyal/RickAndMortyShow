@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Container,Row,Col,Accordion,Card,Button} from 'react-bootstrap';
+import {Container,Row,Col,Accordion,Card,Button,Spinner} from 'react-bootstrap';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import {gql} from 'apollo-boost';
@@ -92,8 +92,7 @@ class home extends Component {
         client.query({ query: gqlQuery
         }).then(result =>{ 
            //console.log(result);
-           result.loading && this.setState({loading:result.loading});
-           result.error && this.setState({error:result.error});
+           
            let data= result.data.characters;
            this.setState({
                 data:data.results,
@@ -222,8 +221,21 @@ class home extends Component {
 
    
     render() { 
-        return (
+        if(this.state.data.length===0){
+            return (  <div className="overlay">
+               <div className="spinnerWrapper">
+                <Spinner animation="border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>
+                <p>LOADING...</p>
+                </div>
+           </div>)
+          }else{
+             return (
+                        
+          
                 <ApolloProvider client={client}>
+                   
                     <Container fluid>
                         <Row>
                             <Col md ="3" >
@@ -279,7 +291,7 @@ class home extends Component {
                     </Container> 
                 </ApolloProvider>
             );
-          
+        } 
     }
 }
  

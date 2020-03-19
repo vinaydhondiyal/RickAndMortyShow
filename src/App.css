@@ -77,7 +77,19 @@ ul.filteredTabs li span:hover{opacity: .5;}
   top: 0;
   right: 0;
 }
-
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 99;
+  background: #a4a1a1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spinnerWrapper {
+  text-align: center;
+}
 p.noresults {
   text-align: center;
   display: block;
