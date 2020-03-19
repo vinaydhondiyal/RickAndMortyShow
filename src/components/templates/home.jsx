@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
-import {Container,Row,Col} from 'react-bootstrap';
+import {Container,Row,Col,Accordion,Card,Button} from 'react-bootstrap';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import {gql} from 'apollo-boost';
+import { IoIosAddCircleOutline,IoIosAddCircle } from "react-icons/io";
 
 
 import List from '../organisms/list';
@@ -40,6 +41,7 @@ class home extends Component {
               info{count}
               results{
                 id
+                status
                 name
                 species
                 type
@@ -66,6 +68,7 @@ class home extends Component {
               info{count}
               results{
                 id
+                status
                 name
                 species
                 type
@@ -179,6 +182,7 @@ class home extends Component {
         console.log(event.target.attributes.value.value)
         let st = this.state.selectArray;
         st = st.filter(item=> item !==event.target.attributes.value.value);
+        document.querySelector(`input[value="${event.target.attributes.value.value}"]`).checked=false;
         this.setState({selectArray:st});
     }
 
@@ -193,8 +197,28 @@ class home extends Component {
             st = st.filter(item=> item !==event.target.value);
         }
         this.setState({selectArray:st});
+        
+        
+    }
+
+    // post component update
+    componentDidUpdate(){
+        let targ = this.state.selectArray;
+        if(targ.length>0){
+            document.querySelectorAll('.items').forEach((el)=> el.classList.remove('filtered'));
+            targ = targ.map((item)=> '.'+item);        
+            document.querySelectorAll(targ.join(',')).forEach((el)=> {
+               return el.classList.add('filtered');
+            })
+            
+        }else{
+            document.querySelectorAll('.items').forEach((el)=> {
+                return el.classList.add('filtered');
+            });
+        }
 
     }
+
 
    
     render() { 
@@ -203,12 +227,26 @@ class home extends Component {
                     <Container fluid>
                         <Row>
                             <Col md ="3" >
-                                <h2> Filters</h2>
+                            <Accordion defaultActiveKey="0">
+                            <Card>
+                               <Col className="filterHead">
+                                    <h2> Filters</h2>
+                                    <Accordion.Toggle as={Button} variant="link" eventKey="0" className="d-md-none">
+                                        <IoIosAddCircle  color="black" size="2em" className="plusIcon"/>
+                                    </Accordion.Toggle>
+                                </Col>
+                                <Accordion.Collapse eventKey="0">
+                                <Card.Body>
                                 {Object.keys(this.state.filter).map((type,index)=>{
                                     if(this.state.filter[type].length){
                                         return <Filter key={index} type={type} data={this.state.filter[type]} checkboxClick={this.checkboxClick}/> 
                                     }
                                 })}
+                                </Card.Body>
+                                </Accordion.Collapse>
+                            </Card>
+                            </Accordion>                           
+                                
                                             
                             </Col>
                             <Col md="9">

@@ -10,9 +10,9 @@ const filterTarget = (props) => {
    for(let i=0 ; i<target.length; i++){
        if(typeof props.char[target[i]] !=='undefined'){
             if(typeof props.char[target[i]] !=="object"){
-                names +=' '+ props.char[target[i]]
+                names +=' '+ props.char[target[i]].split(" ").join("").replace(/[(,),',.]/g,'')
             }else{
-                names +=' '+ props.char[target[i]]['name'];
+                names +=' '+ props.char[target[i]]['name'].split(" ").join("").replace(/[(,),',.]/g,'');
             }
         }
    }
@@ -33,7 +33,7 @@ const List = (props) => {
 
 
     return ( 
-        <Col lg="3" md="6" className="items" data-target={targetvalue}>
+        <Col lg="3" md="6" className={"items " + targetvalue} data-target={targetvalue}>
             <Card>
                 <div className="imgWrapper">
                 <Card.Img variant="top" src={props.char.image} />

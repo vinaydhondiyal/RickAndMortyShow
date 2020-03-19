@@ -60,12 +60,24 @@ ul.filteredTabs li span:hover{opacity: .5;}
 .contentWrapper {
   padding: 25px 15px;
 }
-.items.col-lg-3.col-md-6 {
+.items {
   border: 1px solid rgba(0,0,0,.125);
   background: #444;
   border-radius: .25rem;
   margin-bottom: 10px;
+  display: none;
 }
+.items.filtered{
+  display: block;
+}
+
+.filterHead .btn {
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 p.noresults {
   text-align: center;
   display: block;
