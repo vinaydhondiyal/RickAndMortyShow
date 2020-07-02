@@ -1,8 +1,10 @@
 import React from 'react';
-import {Form} from 'react-bootstrap'; 
+import {Form} from 'react-bootstrap';
+import {connect} from 'react-redux';
+//import client from '../../api';
 
 const Sort = (props) => {
-    //console.log(props);
+    console.log(props);
     return ( 
         <React.Fragment>
             <Form.Label></Form.Label>
@@ -16,5 +18,16 @@ const Sort = (props) => {
         </React.Fragment>
      );
 }
+var mapStateToProps=(state)=>({
+    ...state
+});
+var mapDispatchToProps=(dispatch)=>{
+    return {
+        changeSortValue:event=>dispatch({ 
+            type:'CHANGE_SORT_VALUE',
+            payload:event
+        })
+    }
+};
  
-export default Sort;
+export default connect(mapStateToProps,mapDispatchToProps)(Sort);

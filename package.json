@@ -1,23 +1,26 @@
 {
-  "name": "tdd",
+  "name": "ricky",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@apollo/react-hooks": "^3.1.3",
+    "@apollo/react-hooks": "^3.1.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "apollo-boost": "^0.4.7",
-    "bootstrap": "^4.4.1",
-    "dayjs": "^1.8.22",
-    "graphql": "^14.6.0",
-    "react": "^16.13.0",
-    "react-apollo": "^3.1.3",
-    "react-bootstrap": "^1.0.0-beta.17",
-    "react-dom": "^16.13.0",
-    "react-icons": "^3.9.0",
-    "react-scripts": "3.4.0",
-    "yarn": "^1.22.1"
+    "apollo-boost": "^0.4.9",
+    "bootstrap": "^4.5.0",
+    "dayjs": "^1.8.28",
+    "graphql": "^15.1.0",
+    "react": "^16.13.1",
+    "react-apollo": "^3.1.5",
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "react-redux": "^7.2.0",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^6.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,14 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.8.7",
-    "@babel/preset-react": "^7.8.3",
-    "babel-jest": "^24.9.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "jest": "24.9.0",
-    "react-test-renderer": "^16.13.0"
   }
 }

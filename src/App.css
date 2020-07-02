@@ -1,99 +1,38 @@
 .App {
-  text-align: left;
+  text-align: center;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-.filter_box.col {
-  border: .2rem solid #ececec;
-  text-align: left;
-  margin-bottom: 10px;
-}
-.filter_box.col li{
-  list-style:none;}
-.filter_box.col ul{
-  margin:none;
-  padding:0;
-}
-ul.filteredTabs {list-style:none;display: block;text-align:left;padding: 0;}
-ul.filteredTabs li{display:inline-block;text-align:left;    margin-right: 10px;padding: 3px 5px;background: #ddd;border-radius: 5px;}
-ul.filteredTabs li span{display:inline-block; padding:0 5px; cursor: pointer; }
-ul.filteredTabs li span:hover{opacity: .5;}
-.imgWrapper {
-  position: relative;
-  min-height: 100px;
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-.items .card-body {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  background: #444444b0;
-  color: #fff;
-  padding: 15px;
-}
-
-.items .col, .items .list-group-item {
-  background: #444;
-  color:#fff;
-  border-color: #666;
-}
-
-.items .card {
-  background: #444;
-  border: none;
-}
-.list-group .list-group-item {
-  padding: 5px;
-  font-size: 12px;
-}
-.card-title.h5 { margin-bottom: 5px;}
-.row .heading {text-transform:uppercase; padding:0 10px;}
-.row .info{color:orange;Text-align:right; padding:0 10px;}
-.filteredItemsWrapper {
-  background: #343434;
-  padding: 10px;
-}
-
-.contentWrapper {
-  padding: 25px 15px;
-}
-.items {
-  border: 1px solid rgba(0,0,0,.125);
-  background: #444;
-  border-radius: .25rem;
-  margin-bottom: 10px;
-  display: none;
-}
-.items.filtered{
-  display: block;
-}
-
-.filterHead .btn {
-  float: right;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.overlay {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 99;
-  background: #a4a1a1;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
-.spinnerWrapper {
-  text-align: center;
+
+.App-link {
+  color: #61dafb;
 }
-p.noresults {
-  text-align: center;
-  display: block;
-  color: #fff;
-  font-size: 20px;
-  flex: auto;
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

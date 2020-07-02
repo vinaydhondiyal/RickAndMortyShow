@@ -1,0 +1,1 @@
+export const URL_ENDPOINT = 'https://rickandmortyapi.com/graphql/';
